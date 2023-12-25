@@ -54,7 +54,7 @@
         raise_layer {
             bindings = <
 &mt LGUI C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS  &none   &none        &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_MUTE  &kp C_VOLUME_DOWN  &mt RIGHT_META C_VOLUME_UP
-&mt LCTRL CLCK             &none                 &none                              &none                                   &none   &none        &kp LEFT_ARROW  &kp DOWN_ARROW    &kp UP      &kp RIGHT   &none              &kp RCTRL
+&kp CAPSLOCK               &none                 &none                              &none                                   &none   &none        &kp LEFT_ARROW  &kp DOWN_ARROW    &kp UP      &kp RIGHT   &none              &kp RCTRL
 &kp LALT                   &none                 &none                              &none                                   &none   &none        &none           &none             &none       &none       &none              &kp RALT
                                                                                     &trans                                  &trans  &lt ADJ RET  &lt ADJ ESC     &trans            &trans
             >;
