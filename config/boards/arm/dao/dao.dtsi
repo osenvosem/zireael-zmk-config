@@ -11,7 +11,7 @@
 
 
 / {
-	model = "dao";
+	model = "Dao";
 	compatible = "dao";
 
 	chosen {
@@ -62,6 +62,8 @@
 		compatible = "zmk,kscan-gpio-matrix";
 		label = "KSCAN";
 
+		wakeup-source;
+
 		diode-direction = "col2row";
 		row-gpios
 			= <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -70,6 +72,13 @@
 			, <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;
 	};
+
+    leds {
+        compatible = "gpio-leds";
+        blue_led: led_0 {
+            gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
+        };
+    };
 
 	vbatt: vbatt {
 		compatible = "zmk,battery-voltage-divider";
@@ -101,17 +110,6 @@
 &usbd {
 	status = "okay";
 };
-
-&uart0 {
-	compatible = "nordic,nrf-uarte";
-	status = "okay";
-	current-speed = <115200>;
-	tx-pin = <19>;
-	rx-pin = <21>;
-	rts-pin = <23>;
-	cts-pin = <25>;
-};
-
 
 &flash0 {
 	/*
