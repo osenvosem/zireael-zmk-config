@@ -13,13 +13,9 @@
 #define RSE 2
 #define ADJ 3
 
-&lt {
-    quick_tap_ms = <200>;
-};
+&lt { quick_tap_ms = <200>; };
 
-&mt {
-    quick_tap_ms = <200>;
-};
+&mt { quick_tap_ms = <200>; };
 
 / {
     chosen {
@@ -30,6 +26,16 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        capslock {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <37 40>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -53,19 +59,19 @@
 
         raise_layer {
             bindings = <
-&mt LGUI C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS  &none   &none        &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_MUTE  &kp C_VOLUME_DOWN  &mt RIGHT_META C_VOLUME_UP
-&kp CAPSLOCK               &none                 &none                              &none                                   &none   &none        &kp LEFT_ARROW  &kp DOWN_ARROW    &kp UP      &kp RIGHT   &none              &kp RCTRL
-&kp LALT                   &none                 &none                              &none                                   &none   &none        &none           &none             &none       &none       &none              &kp RALT
-                                                                                    &trans                                  &trans  &lt ADJ RET  &lt ADJ ESC     &trans            &trans
+&kp LGUI            &kp KP_DIVIDE    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS  &kp C_PREVIOUS                          &kp C_PLAY_PAUSE                   &kp C_NEXT       &kp C_MUTE           &kp C_VOLUME_DOWN  &mt RIGHT_META C_VOLUME_UP
+&mt LCTRL KP_EQUAL  &kp KP_MULTIPLY  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS   &kp LEFT_ARROW                          &kp DOWN_ARROW                     &kp UP           &kp RIGHT            &caps_word         &kp RCTRL
+&kp LALT            &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT    &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp C_AC_SEARCH  &kp C_VOICE_COMMAND  &none              &kp RALT
+                                                      &trans           &trans           &lt ADJ RET   &lt ADJ ESC                             &trans                             &trans
             >;
         };
 
         adjust_layer {
             bindings = <
-&bootloader  &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &bootloader
-&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
-&sys_reset   &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &sys_reset
-                                         &trans        &none         &trans        &trans        &none         &trans
+&bootloader  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none         &none         &none         &none         &none         &none         &none         &none         &bootloader
+&bt BT_CLR   &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
+&sys_reset   &none                 &none                 &none         &none         &none         &none         &none         &none         &none         &none         &sys_reset
+                                                         &trans        &none         &trans        &trans        &none         &trans
             >;
         };
     };
